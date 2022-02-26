@@ -4,37 +4,80 @@ body {
 	overflow: hidden;
 }
 
+h1 {
+	position: absolute;
+	margin-left: auto;
+	margin-right: auto;
+	left: 0;
+	right: 0;
+	text-align: center;
+	font-size: 5vh;
+	font-family: consolas;
+	color: #eee;
+}
+
 #game-container {
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	height: 100%;
+	max-width: auto;
 }
 
 #grid {
 	display: grid;
 	margin: 0;
 	padding: 0;
-	max-width: 60vh;
+	max-width: min-content;
 	grid-template-columns: repeat(9, 1fr);
+}
+
+#new-puzzle {
+	position: absolute;
+	top: 90%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	padding: 1.5vh;
+
+	font-size: 2.2vh;
+	font-family: consolas;
+	border-radius: 3vh;
+	outline: none;
+	border: none;
+	background-color: #22222a;
+	color: #eee;
+	transition: 0.15s ease-in;
+}
+
+#new-puzzle:hover {
+	background-color: crimson;
+	cursor: pointer;
+	transform: scale3d(150%, 150%, 100%);
+	transform: translate(-50%, -65%);
 }
 
 .grid-element {
 	border: 0.05vh solid #111;
-	border-radius: 1vh;
+	border-radius: 1.2vh;
 	min-width: 6vh;
 	min-height: 6vh;
 	background-color: #22222a;
 	text-align: center;
 	user-select: none;
-	font-size: 4vh;
+	font-size: 5vh;
 	color: transparent;
 	text-shadow: 0 0 0 #eef;
 	transition: 0.15s ease-in-out;
 	overflow: hidden;
 	font-weight: 550;
-	font-family: roboto;
+	font-family: consolas;
 	cursor: pointer;
+	outline: none;
+}
+
+.error {
+	background-color: crimson !important;
+	font-size: 5vh;
 }
 
 .top-border {
