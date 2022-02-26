@@ -1,71 +1,71 @@
 body {
-    height: 100vh;
-    background-color: #111;
-    overflow: hidden;
+	height: 100vh;
+	background-color: #111;
+	overflow: hidden;
 }
 
 #game-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100%
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100%;
 }
 
 #grid {
-    display: grid;
-    margin: 0;
-    padding: 0;
-    max-width: 80vh;
-    grid-template-columns: repeat(3,1fr);
+	display: grid;
+	margin: 0;
+	padding: 0;
+	max-width: 60vh;
+	grid-template-columns: repeat(9, 1fr);
 }
 
-.small-grid {
-    display: grid;
-    margin: 0;
-    padding: 0;
-    border: 0.3vh solid #111;
-    border-radius: 1vh;
-    max-width: 20vh;
-    grid-template-columns: repeat(3,1fr);
+.grid-element {
+	border: 0.05vh solid #111;
+	border-radius: 1vh;
+	min-width: 6vh;
+	min-height: 6vh;
+	background-color: #22222a;
+	text-align: center;
+	user-select: none;
+	font-size: 4vh;
+	color: transparent;
+	text-shadow: 0 0 0 #eef;
+	transition: 0.15s ease-in-out;
+	overflow: hidden;
+	font-weight: 550;
+	font-family: roboto;
+	cursor: pointer;
 }
 
-.grid-element{
-    border: 0.05vh solid #111;
-    border-radius: 1vh;
-    min-width: 6vh;
-    min-height: 6vh;
-    background-color: #22222a;
-    text-align: center;
-    user-select: none;
-    font-size: 4vh;
-    color: transparent;
-    text-shadow: 0 0 0 #eef;
-    transition: 0.25s ease-in-out;
-    overflow: hidden;
-    font-weight: 550;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    cursor: pointer;
-    
+.top-border {
+	margin-bottom: 0.75vh;
+}
+
+.bottom-border {
+	margin-bottom: 0.75vh;
+}
+
+.right-border {
+	margin-right: 0.75vh;
+}
+
+.left-border {
+	margin-right: 0.75vh;
 }
 
 .grid-element::-webkit-inner-spin-button,
 .grid-element::-webkit-outer-spin-button {
-    -webkit-appearance: none; 
-    margin: 0; 
+	-webkit-appearance: none;
+	margin: 0;
 }
-
 
 .grid-element:focus,
-.grid-element:focus:hover{
-    background-color: #44444f;
-    user-select: none;
-    outline: none;   
+.grid-element:focus:hover {
+	background-color: #44444f;
+	user-select: none;
+	outline: none;
 }
 
-
-
-
-
 .grid-element:hover {
-    background-color: #33333f;
+	background-color: #33333f;
 }
