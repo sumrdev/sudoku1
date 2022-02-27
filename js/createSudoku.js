@@ -128,16 +128,28 @@ function convertToSimpleList(grid) {
 }
 
 function generateDifficulty(grid, difficulty) {
-	switch (difficulty) {
-		case "easy": {
-			let holePercentage = 2;
-			for (let i = 0; i < grid.length; i++) {
-				if (Math.floor(Math.random() * holePercentage) == 1) {
-					grid[i] = "";
-				}
-			}
+	console.log(difficulty);
+	if (difficulty == "easy") {
+		var holePercentage = 5;
+	}
+	if (difficulty == "medium") {
+		var holePercentage = 4;
+	}
+	if (difficulty == "hard") {
+		var holePercentage = 2;
+	}
+	if (difficulty == "super-hard") {
+		var holePercentage = 1;
+	}
+
+	console.log(holePercentage);
+
+	for (let i = 0; i < grid.length; i++) {
+		if (Math.floor(Math.random() * 10) > holePercentage) {
+			grid[i] = "";
 		}
 	}
+
 	return grid;
 }
 
@@ -149,5 +161,5 @@ function generateNewSudoku(difficulty) {
 		solve(grid);
 	}
 	grid = convertToSimpleList(grid);
-	return generateDifficulty(grid, "easy");
+	return generateDifficulty(grid, difficulty);
 }

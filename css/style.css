@@ -16,29 +16,152 @@ h1 {
 	color: #eee;
 }
 
-#game-container {
-	display: flex;
+#win-screen {
+	position: absolute;
+	top: 5%;
+	left: 50%;
+	transform: translate(-50%, 30%);
+	padding: 25vh;
+	background-color: #111;
+	display: none;
+	border-radius: 5vh;
+}
+
+#stats-container {
+	position: absolute;
+	top: -10%;
+	left: 50%;
+	width: 100%;
+	transform: translate(-50%, 30%);
+	padding: 1vh;
+	font-size: 4vh;
+	color: #eef;
+	font-family: consolas;
+	display: grid;
+	text-align: center;
+	padding-bottom: 5vh;
+}
+
+#stats-box {
+	display: grid;
 	justify-content: center;
 	align-items: center;
-	height: 100%;
-	max-width: auto;
+	grid-template-columns: 25vh 25vh;
+	grid-template-rows: 15vh 1fr;
+}
+
+#close {
+	position: absolute;
+	top: 5%;
+	left: 87%;
+	font-size: 3vh;
+	width: 3.5vh;
+	background-color: #111;
+	border-radius: 5vh;
+	font-family: consolas;
+	color: #555;
+	outline: none;
+	border: none;
+	cursor: pointer;
+	z-index: 2;
+}
+
+#twitter-big {
+	display: flex;
+	outline: none;
+	border: none;
+	background-color: #1b95e0;
+	color: #fff;
+
+	font-size: 3.5vh;
+	padding: 2vh;
+	padding-right: 3vh;
+	border-radius: 5vh;
+	cursor: pointer;
+	transition: 0.15s ease;
+}
+
+#twitter-big:hover {
+	transform: scale(105%, 105%);
+}
+
+#twitterimg {
+	width: 5vh;
+	padding-right: 1vh;
+}
+
+.diff-select select {
+	outline: none;
+	border: none;
+	color: #eef;
+	padding: 1vh;
+	background-color: #22222a;
+	border-radius: 5vh;
+	font-size: 2.5vh;
+	font-family: consolas;
+	cursor: pointer;
+}
+
+.diff-select div,
+.select-selected {
+	color: #ffffff;
+	padding: 8px 16px;
+	border: 1px solid transparent;
+	border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
+	cursor: pointer;
+}
+
+.twitter-share-button {
+}
+
+.stats-type-container {
+	display: grid;
+}
+
+.stat-info {
+	font-size: 5vh;
+}
+
+.stat-type {
+	font-size: 2vh;
+}
+
+#game-container {
+	position: relative;
 }
 
 #grid {
 	display: grid;
-	margin: 0;
-	padding: 0;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, 30%);
 	max-width: min-content;
 	grid-template-columns: repeat(9, 1fr);
 }
 
-#new-puzzle {
-	position: absolute;
-	top: 90%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-	padding: 1.5vh;
+#submit:hover {
+	background-color: limegreen;
+	color: #111;
+}
 
+.submit-error {
+	background-color: crimson !important;
+}
+
+#ui {
+	position: fixed;
+	left: 50%;
+	bottom: 10vh;
+	transform: translate(-50%, -50%);
+	margin: 0 auto;
+}
+
+.ui-button {
+	position: relative;
+	padding: 1.5vh;
+	margin-left: 1vh;
+	margin-right: 1vh;
 	font-size: 2.2vh;
 	font-family: consolas;
 	border-radius: 3vh;
@@ -49,11 +172,26 @@ h1 {
 	transition: 0.15s ease-in;
 }
 
-#new-puzzle:hover {
+.ui-button:hover {
 	background-color: crimson;
 	cursor: pointer;
-	transform: scale3d(150%, 150%, 100%);
-	transform: translate(-50%, -65%);
+	transform: scale3d(105%, 105%, 150%);
+}
+
+#notification {
+	position: fixed;
+	left: 50%;
+	bottom: 2vh;
+	transform: translate(-50%, -50%);
+	margin: 0 auto;
+	transition: 0.3s ease;
+}
+
+#notification-text {
+	font-size: 0vh;
+	font-family: consolas;
+	color: crimson;
+	transition: 0.3s ease;
 }
 
 .grid-element {

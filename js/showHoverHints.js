@@ -91,8 +91,6 @@ function convertMarkupToIntegers(arr) {
 	return intArr;
 }
 
-function isLegal() {}
-
 function hasDuplicates(arr) {
 	return new Set(arr).size !== arr.length;
 }

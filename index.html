@@ -10,8 +10,9 @@
     <script src="./js/createSudoku.js"></script>
     <script src="./js/sudokuGame.js"></script>
     <script src="./js/showHoverHints.js"></script>
+    <script src="./js/submit.js"></script>
     <script src="./js/ui.js"></script>
-    <script src="./js/test.js"></script>
+    <script src="./js/notification.js"></script>
 
 </head>
 <body>
@@ -20,7 +21,46 @@
         <div id="grid">
 
         </div>
+
+    <div id="ui">
+        <button class="ui-button" id="new-puzzle">New Puzzle</button>
+
+        <span class ="diff-select">         
+            <select id="select-id">
+            <div class="drop-content">
+                <option value="easy">Easy</option>
+                <option value="medium">Medium</option>
+                <option value="hard">Hard</option>
+                <option value="super-hard">Super hard</option>
+            </div>
+        </select>
+    </span>
+        <button class = "ui-button" id="submit">Submit</button>
     </div>
-    <button id="new-puzzle">New Puzzle</button>
+    <div id="notification">
+        <div id="notification-text">test</div>
+    </div>
+
+</div>
+<div id="win-screen">
+    <div id="win-text">You solved it!</div>
+        <button id="close">✕</button>
+        <div id="stats-container">Statistics
+            <div id="stats-box">
+            <div class="stat-type-container">
+                <div class = stat-info id="time">400s</div>
+                <div class = stat-type>Time</div>
+            </div>
+            <div class="stat-type-container">
+                <div class = stat-info id="difficulty">HARD</div>
+                <div class = stat-type>Difficulty</div>
+            </div>
+        </div>
+        </div>
+        <div id="share-container">
+            <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-size="large" data-text="I solved SUDOSUDOKU on HARD MODE in 5 MINUTES" data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+        </div>
+
+</div>
 </body>
 </html>
