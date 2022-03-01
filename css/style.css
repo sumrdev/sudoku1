@@ -159,7 +159,7 @@ h1 {
 #ui {
 	position: fixed;
 	left: 50%;
-	bottom: 10vh;
+	bottom: 1vh;
 	transform: translate(-50%, -50%);
 	margin: 0 auto;
 	width: fit-content;
