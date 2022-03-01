@@ -40,6 +40,7 @@ window.addEventListener("DOMContentLoaded", () => {
 		gridElement.id = String(i);
 		gridElement.maxLength = "1";
 		gridElement.type = "text";
+		gridElement.inputMode = "numeric";
 		gridElement.oninput = function () {
 			this.value = this.value
 				.replace(/[^0-9.]/g, "")
