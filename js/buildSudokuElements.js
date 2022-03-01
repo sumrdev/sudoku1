@@ -27,6 +27,8 @@ window.addEventListener("DOMContentLoaded", () => {
 				.replace(/[^0-9.]/g, "")
 				.replace(/(\..*?)\..*/g, "$1");
 			checkLegalMove(i, createRuleGrids());
+			submitSudoku(createRuleGrids(), time);
+
 		};
 		gridElement.onmouseover = function () {
 			showHoverHints(i, "hover");

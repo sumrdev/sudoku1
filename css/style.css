@@ -21,7 +21,7 @@ h1 {
 	top: 5%;
 	left: 50%;
 	transform: translate(-50%, 30%);
-	padding: 25vh;
+	padding: 30vh 15vh 15vh 15vh;
 	background-color: #111;
 	display: none;
 	border-radius: 5vh;
@@ -40,6 +40,14 @@ h1 {
 	display: grid;
 	text-align: center;
 	padding-bottom: 5vh;
+}
+
+
+#win-text {
+	color: #eef;
+	font-family: consolas;
+	font-size: 3vh;
+	width: 25vh;
 }
 
 #stats-box {

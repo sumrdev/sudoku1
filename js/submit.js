@@ -21,7 +21,7 @@ function submitSudoku(masterList, time) {
 }
 
 function illegalSubmit(reason) {
-	notification("You can't submit this, " + reason, false);
+	// notification("You can't submit this, " + reason, false);
 }
 
 function winningSubmit(winScreenSubmit, time) {

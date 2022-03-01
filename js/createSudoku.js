@@ -130,7 +130,7 @@ function convertToSimpleList(grid) {
 function generateDifficulty(grid, difficulty) {
 	console.log(difficulty);
 	if (difficulty == "easy") {
-		var holePercentage = 5;
+		var holePercentage = 500000;
 	}
 	if (difficulty == "medium") {
 		var holePercentage = 4;
