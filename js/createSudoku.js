@@ -128,29 +128,39 @@ function convertToSimpleList(grid) {
 }
 
 function generateDifficulty(grid, difficulty) {
-	console.log(difficulty);
+	var holePercentage;
+
 	if (difficulty == "easy") {
-		var holePercentage = 500000;
+		holePercentage = 81 - 81;
 	}
 	if (difficulty == "medium") {
-		var holePercentage = 4;
+		holePercentage = 81 - 40;
 	}
 	if (difficulty == "hard") {
-		var holePercentage = 2;
+		holePercentage = 81 - 30;
 	}
 	if (difficulty == "super-hard") {
-		var holePercentage = 1;
+		holePercentage = 81 - 25;
 	}
 
-	console.log(holePercentage);
+	return deleteRandomNumbers(grid, holePercentage);
 
-	for (let i = 0; i < grid.length; i++) {
-		if (Math.floor(Math.random() * 10) > holePercentage) {
-			grid[i] = "";
+	function deleteRandomNumbers(arr, n) {
+		let indexToDel = [];
+		let i = 0;
+		while (i < n) {
+			a = Math.floor(Math.random() * arr.length);
+			if (!indexToDel.includes(a)) {
+				indexToDel.push(a);
+				i++;
+			}
 		}
-	}
 
-	return grid;
+		for (let i = 0; i < n; i++) {
+			arr[indexToDel[i]] = "";
+		}
+		return arr;
+	}
 }
 
 function generateNewSudoku(difficulty) {

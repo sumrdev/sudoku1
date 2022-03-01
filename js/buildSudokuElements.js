@@ -5,14 +5,32 @@ window.addEventListener("DOMContentLoaded", () => {
 	const closeButton = document.getElementById("close");
 	const winScreen = document.getElementById("win-screen");
 	let diff = document.getElementById("select-id");
+	const timer = document.getElementsByClassName("timer");
 
 	let grid = [];
+	let sudoku;
 
-	let time = 0;
+	let time,
+		seconds = 0,
+		minutes = 0,
+		hours = 0;
+
 	let difficulty = "easy";
 
 	setInterval(() => {
-		time += 1;
+		seconds += 1;
+		if (seconds > 59) {
+			minutes += 1;
+			seconds = 0;
+		}
+		if (minutes > 59) {
+			hours += 1;
+			minutes = 0;
+		}
+		time =
+			String(hours) + "h " + String(minutes) + "m " + String(seconds) + "s ";
+
+		timer[0].textContent = time;
 	}, 1000);
 
 	for (let i = 0; i < 81; i++) {
@@ -27,8 +45,7 @@ window.addEventListener("DOMContentLoaded", () => {
 				.replace(/[^0-9.]/g, "")
 				.replace(/(\..*?)\..*/g, "$1");
 			checkLegalMove(i, createRuleGrids());
-			submitSudoku(createRuleGrids(), time);
-
+			submitSudoku(createRuleGrids(), time, difficulty);
 		};
 		gridElement.onmouseover = function () {
 			showHoverHints(i, "hover");
@@ -39,6 +56,23 @@ window.addEventListener("DOMContentLoaded", () => {
 		gridElement.onfocus = function () {
 			showHoverHints(i, "click");
 		};
+		gridElement.addEventListener("keydown", (e) => {
+			if (e.key == "ArrowLeft" && document.getElementById(String(i - 1))) {
+				document.getElementById(String(i - 1)).focus();
+			} else if (
+				e.key == "ArrowRight" &&
+				document.getElementById(String(i + 1))
+			) {
+				document.getElementById(String(i + 1)).focus();
+			} else if (e.key == "ArrowUp" && document.getElementById(String(i - 9))) {
+				document.getElementById(String(i - 9)).focus();
+			} else if (
+				e.key == "ArrowDown" &&
+				document.getElementById(String(i + 9))
+			) {
+				document.getElementById(String(i + 9)).focus();
+			}
+		});
 
 		if ([2, 11, 20, 29, 38, 47, 56, 65, 74].includes(i)) {
 			gridElement.className += " left-border";
@@ -56,10 +90,11 @@ window.addEventListener("DOMContentLoaded", () => {
 
 		gridContainer.append(gridElement);
 	}
-	buildSudoku(gridContainer, diff.value);
+	sudoku = buildSudoku(gridContainer, diff.value);
 
 	submit.addEventListener("click", () => {
-		submitSudoku(createRuleGrids(), time);
+		console.log(diff.value);
+		submitSudoku(createRuleGrids(), time, diff.value, sudoku);
 	});
 
 	closeButton.addEventListener("click", () => {
@@ -67,7 +102,6 @@ window.addEventListener("DOMContentLoaded", () => {
 	});
 
 	newPuzzle.addEventListener("click", () => {
-		console.log(diff.value);
 		time = 0;
 		buildSudoku(gridContainer, diff.value);
 	});
@@ -91,4 +125,5 @@ function buildSudoku(gridContainer, diff) {
 			grid[i].value = sudoku[i];
 		}, 150);
 	}
+	return sudoku;
 }

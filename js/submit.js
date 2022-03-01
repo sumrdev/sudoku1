@@ -1,7 +1,8 @@
-function submitSudoku(masterList, time) {
+function submitSudoku(masterList, time, diff, sudoku) {
 	const gridContainer = document.getElementsByClassName("grid-element");
 	const winScreenSubmit = document.getElementById("win-screen");
 
+	console.log(sudoku);
 	for (let i = 0; i < 81; i++) {
 		if (gridContainer[i].value == "") {
 			return illegalSubmit("you didn't finish!");
@@ -17,15 +18,24 @@ function submitSudoku(masterList, time) {
 			return illegalSubmit("wrong solve!");
 		}
 	}
-	return winningSubmit(winScreenSubmit, time);
+	for (let i = 0; i < 81; i++) {
+		if (sudoku[i] != "" && sudoku[i] != gridContainer[i].value) {
+			return illegalSubmit("Cheating detected");
+		}
+	}
+	return winningSubmit(winScreenSubmit, time, diff);
 }
 
 function illegalSubmit(reason) {
 	// notification("You can't submit this, " + reason, false);
 }
 
-function winningSubmit(winScreenSubmit, time) {
+function winningSubmit(winScreenSubmit, time, diff) {
 	const timeText = document.getElementById("time");
+	const diffText = document.getElementById("difficulty");
+
+	console.log(diff);
 	winScreenSubmit.style.display = "inherit";
-	timeText.textContent = time + "s";
+	timeText.textContent = time;
+	diffText.textContent = diff.toUpperCase();
 }

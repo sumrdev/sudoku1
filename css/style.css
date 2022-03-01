@@ -42,7 +42,6 @@ h1 {
 	padding-bottom: 5vh;
 }
 
-
 #win-text {
 	color: #eef;
 	font-family: consolas;
@@ -219,6 +218,12 @@ h1 {
 	font-family: consolas;
 	cursor: pointer;
 	outline: none;
+}
+
+.timer {
+	font-size: 2vh;
+	color: #eef;
+	font-family: consolas;
 }
 
 .error {
