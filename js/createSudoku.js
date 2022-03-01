@@ -131,7 +131,7 @@ function generateDifficulty(grid, difficulty) {
 	var holePercentage;
 
 	if (difficulty == "easy") {
-		holePercentage = 81 - 81;
+		holePercentage = 81 - 50;
 	}
 	if (difficulty == "medium") {
 		holePercentage = 81 - 40;
