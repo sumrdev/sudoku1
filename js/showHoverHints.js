@@ -22,8 +22,8 @@ function showHoverHints(index, interaction) {
 	}
 
 	for (let i = 0; i < 81; i++) {
-		if (interaction == "hover" && gridContainer[i].value == "") {
-			gridContainer[index].style.backgroundColor = "#33333f";
+		if (interaction == "hover" && gridContainer[i].value == "" && i != index) {
+			gridContainer[index].style.backgroundColor = "#555575";
 		} else {
 			gridContainer[i].style.backgroundColor = "#22222a";
 		}
@@ -43,13 +43,15 @@ function showHoverHints(index, interaction) {
 			gridContainer[i].style.backgroundColor = "#22222a";
 		}
 		if ((interaction == "hover"  || interaction == "focus") &&
+			i != index &&
 			gridContainer[index].value == gridContainer[i].value && gridContainer[index].value != "") {
 			gridContainer[i].style.backgroundColor = "#555575";
 		}
 		if (
 			x3SquareCheck(index).includes(i) &&
 			interaction == "hover" &&
-			gridContainer[index].value != ""
+			gridContainer[index].value != "" &&
+			i != index
 		) {
 			gridContainer[i].style.backgroundColor = "#33333f";
 		}

@@ -45,6 +45,7 @@ window.addEventListener("DOMContentLoaded", () => {
 			this.value = this.value
 				.replace(/[^1-9.]/g, "")
 				.replace(/(\..*?)\..*/g, "$1");
+				checkLegalMove(i, createRuleGrids());
 			checkLegalMove(i, createRuleGrids());
 			submitSudoku(createRuleGrids(), time, difficulty);
 		};
