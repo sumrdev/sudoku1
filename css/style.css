@@ -256,11 +256,11 @@ h1 {
 
 .grid-element:focus,
 .grid-element:focus:hover {
-	background-color: #44444f;
+	background-color: #555575 !important;
 	user-select: none;
 	outline: none;
 }
 
 .grid-element:hover {
-	background-color: #33333f;
+	background-color: #555575 ; 
 }

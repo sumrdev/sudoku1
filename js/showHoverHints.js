@@ -29,18 +29,22 @@ function showHoverHints(index, interaction) {
 		}
 
 		if (
-			(interaction == "hover" &&
-				gridContainer[index].value != "" &&
-				gridContainer[index].value == gridContainer[i].value) ||
+			((interaction == "hover"  || interaction == "focus") &&
+				gridContainer[index].value != "") &&
+				index != i &&
 			(Math.floor(index / 9) == Math.floor(i / 9) &&
 				gridContainer[index].value != "") ||
 			(Math.floor(index % 9) == i % 9 && gridContainer[index].value != "")
 		) {
 			gridContainer[i].style.backgroundColor = "#33333f";
 		} else if (interaction == "click") {
-			gridContainer[index].style.backgroundColor = "#44444f";
+			gridContainer[index].style.backgroundColor = "#444444";
 		} else {
 			gridContainer[i].style.backgroundColor = "#22222a";
+		}
+		if ((interaction == "hover"  || interaction == "focus") &&
+			gridContainer[index].value == gridContainer[i].value && gridContainer[index].value != "") {
+			gridContainer[i].style.backgroundColor = "#555575";
 		}
 		if (
 			x3SquareCheck(index).includes(i) &&

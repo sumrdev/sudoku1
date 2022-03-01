@@ -43,7 +43,7 @@ window.addEventListener("DOMContentLoaded", () => {
 		gridElement.inputMode = "numeric";
 		gridElement.oninput = function () {
 			this.value = this.value
-				.replace(/[^0-9.]/g, "")
+				.replace(/[^1-9.]/g, "")
 				.replace(/(\..*?)\..*/g, "$1");
 			checkLegalMove(i, createRuleGrids());
 			submitSudoku(createRuleGrids(), time, difficulty);
@@ -52,10 +52,10 @@ window.addEventListener("DOMContentLoaded", () => {
 			showHoverHints(i, "hover");
 		};
 		gridElement.onclick = function () {
-			showHoverHints(i, "click");
+			showHoverHints(i, "hover");
 		};
 		gridElement.onfocus = function () {
-			showHoverHints(i, "click");
+			showHoverHints(i, "hover");
 		};
 		gridElement.addEventListener("keydown", (e) => {
 			if (e.key == "ArrowLeft" && document.getElementById(String(i - 1))) {
@@ -72,6 +72,9 @@ window.addEventListener("DOMContentLoaded", () => {
 				document.getElementById(String(i + 9))
 			) {
 				document.getElementById(String(i + 9)).focus();
+			}
+			if(e.key == "Backspace"){
+				gridElement.value = ""
 			}
 		});
 
